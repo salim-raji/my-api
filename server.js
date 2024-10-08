@@ -2,7 +2,7 @@ const express = require("express");
 const xlsx = require("xlsx");
 const app = express();
 const fs = require('fs');
-
+const cors = require('cors');
 const nodemailer = require('nodemailer')
 
 let transporter = nodemailer.createTransport({
@@ -23,7 +23,7 @@ let mailOptions = {
 };
 
 app.use(express.json());
-
+app.use(cors());
 
 //Midleware
 const logRequest = (req, res, next) => {
